@@ -31,7 +31,7 @@ commands = {"help" : "Displays this message.",
                        "channel letting them know where and when to meet up."}
 
 #---COMMAND FUNCTIONS---
-#Runs the meetup command
+#Runs the help command
 def help():
     '''
     Displays a list of all of the commands for RhondaBot and their descriptions.
