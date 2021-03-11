@@ -26,7 +26,8 @@ rhonda_praise = ["i love rhonda"]
 #List of possible trigger phrases for RhondaBot to go offline.
 rhonda_leave_triggers = ["rhonda go home",
                          "rhonda leave",
-                         "you can go now rhonda"]
+                         "you can go now rhonda",
+                         "rhonda you can leave"]
 
 #A dict of commands and their descriptions.
 commands = {"help, h" : "Displays this message.",
