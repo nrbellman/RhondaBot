@@ -17,6 +17,7 @@ rhonda_abuse = ["rhonda you suck",
 #Counter for the number of consecutive abuses aimed at RhondaBot
 abuse_count = 0
 
+#List of possible trigger phrases for RhondaBot praise.
 rhonda_praise = ["i love rhonda"]
 
 #List of possible trigger phrases for RhondaBot to go offline.
@@ -24,11 +25,13 @@ rhonda_leave_triggers = ["rhonda go home",
                          "rhonda leave",
                          "you can go now rhonda"]
 
+#A dict of commands and their descriptions.
 commands = {"help" : "Displays this message.",
             "meetup" : "[-location -time] Sends a message to everyone in the " +
                        "channel letting them know where and when to meet up."}
 
 #---COMMAND FUNCTIONS---
+#Runs the meetup command
 def help():
     '''
     Displays a list of all of the commands for RhondaBot and their descriptions.
@@ -40,7 +43,8 @@ def help():
     
     print(com_list +"\n")    
     return com_list
-        
+      
+#Runs the meetup command  
 def meetup(arg):
     arg = arg.split('-')
     arg.pop(0)
@@ -76,6 +80,7 @@ async def on_message(message):
     msg = message.content
     global abuse_count
     
+    #Makes sure RhondaBot doesn't respond to her own messages.
     if message.author == client.user:
         return
     
@@ -104,13 +109,16 @@ async def on_message(message):
         command = msg.split(' ', 2)
         print(f'{message.author}: {command[1:]}')
         
-        
+        #RhondaBot greeting
         if command[1] == None:
             await message.channel.send("Hi, I'm RhondaBot, you're personal " +
                                        "secretary")
+        
+        #Check for the 'help' command    
         if command[1] == 'help':
             await message.channel.send('```' + help() + '```')
-        
+            
+        #Check for the 'meetup' command
         if command[1] == 'meetup':
             if len(command) <= 2:
                 output = "ERROR: Insufficient parameters."
@@ -120,6 +128,7 @@ async def on_message(message):
                 
             await message.channel.send(output)
       
+    #Check for telling RhondaBot to leaves
     if msg.lower() in rhonda_leave_triggers:
         print(f"{message.author}: {message.content}")
         await message.channel.send("Okay, I'm heading out now.")
