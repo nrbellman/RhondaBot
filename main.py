@@ -5,6 +5,9 @@ import os
 client = discord.Client()
 load_dotenv('.env')
 
+emoji = {"clown" : '\U0001F921',
+         "heart" : '\U00002764'}
+
 #List of possible trigger phrases for RhondaBot abuse.
 rhonda_abuse = ["rhonda you suck", 
                 "rhonda ain't shit", "rhonda aint shit",
@@ -31,6 +34,7 @@ commands = {"help" : "Displays this message.",
                        "channel letting them know where and when to meet up."}
 
 #---COMMAND FUNCTIONS---
+
 #Runs the help command
 def help():
     '''
@@ -66,6 +70,7 @@ def meetup(arg):
 
     
 #---BOT EVENTS---
+
 @client.event
 async def rhonda_leave():
     await client.logout()
@@ -84,6 +89,9 @@ async def on_message(message):
     if message.author == client.user:
         return
     
+    if message.author.name == "J00pster":
+        await message.add_reaction(emoji['clown'])
+    
     #Check for Rhonda abuse
     if msg.lower() in rhonda_abuse:
         abuse_count += 1
@@ -97,8 +105,7 @@ async def on_message(message):
        
     #Check for Rhonda praise
     if msg.lower() in rhonda_praise:
-        heart = '\U00002764'    #heart emoji
-        await message.add_reaction(heart)
+        await message.add_reaction(emoji['heart'])
     
     #Check for specific commands.
     if msg.startswith('!rhonda'):
