@@ -16,7 +16,8 @@ rhonda_abuse = ["rhonda you suck",
                 "i hate rhonda",
                 "rhonda is a bitch",
                 "eat shit rhonda",
-                "fuck you rhonda"]
+                "fuck you rhonda",
+                "all my homies hate rhonda"]
 #Counter for the number of consecutive abuses aimed at RhondaBot
 abuse_count = 0
 
@@ -75,11 +76,13 @@ def meetup(arg):
 
 @client.event
 async def rhonda_leave():
+    await client.change_presence(status = discord.Status.offline)
     await client.logout()
     await client.close()
 
 @client.event
 async def on_ready():
+    await client.change_presence(status = discord.Status.online)
     print(f'Logged in as {client.user} <{client.user.id}>\n')
     
 @client.event
@@ -104,6 +107,7 @@ async def on_message(message):
         
         if abuse_count > 5:
             await message.channel.send(f"You know what! I'm done! I quit!")
+            await rhonda_leave()
        
     #Check for Rhonda praise
     if msg.lower() in rhonda_praise:
