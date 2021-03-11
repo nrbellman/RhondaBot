@@ -29,9 +29,10 @@ rhonda_leave_triggers = ["rhonda go home",
                          "you can go now rhonda"]
 
 #A dict of commands and their descriptions.
-commands = {"help" : "Displays this message.",
-            "meetup" : "[-location -time] Sends a message to everyone in the " +
-                       "channel letting them know where and when to meet up."}
+commands = {"help, h" : "Displays this message.",
+            "meetup, m" : "[-location -time] Sends a message to everyone in " +
+                          "the channel letting them know where and when to " +
+                          "meet up."}
 
 #---COMMAND FUNCTIONS---
 
@@ -122,11 +123,11 @@ async def on_message(message):
                                        "secretary")
         
         #Check for the 'help' command    
-        if command[1] == 'help':
+        if (command[1] == 'help' or command[1] == 'h'):
             await message.channel.send('```' + help() + '```')
             
         #Check for the 'meetup' command
-        if command[1] == 'meetup':
+        if (command[1] == 'meetup' or command[1] == 'm'):
             if len(command) <= 2:
                 output = "ERROR: Insufficient parameters."
                 print(output + "\n")
