@@ -79,6 +79,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     
+    #Check for Rhonda abuse
     if msg.lower() in rhonda_abuse:
         abuse_count += 1
         print(f"RHONDA ABUSE BY {message.author.display_name}: {msg}" + 
@@ -89,18 +90,24 @@ async def on_message(message):
         if abuse_count > 5:
             await message.channel.send(f"You know what! I'm done! I quit!")
        
+    #Check for Rhonda praise
     if msg.lower() in rhonda_praise:
         heart = '\U00002764'    #heart emoji
         await message.add_reaction(heart)
     
+    #Check for specific commands.
     if msg.startswith('!rhonda'):
+        #Resets abuse counter.
         abuse_count -= abuse_count 
         
+        #Splits the command and "!rhonda"
         command = msg.split(' ', 2)
         print(f'{message.author}: {command[1:]}')
         
+        
         if command[1] == None:
-            await message.channel.send
+            await message.channel.send("Hi, I'm RhondaBot, you're personal " +
+                                       "secretary")
         if command[1] == 'help':
             await message.channel.send('```' + help() + '```')
         
