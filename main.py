@@ -22,7 +22,8 @@ rhonda_abuse = ["rhonda you suck",
 abuse_count = 0
 
 #List of possible trigger phrases for RhondaBot praise.
-rhonda_praise = ["i love rhonda"]
+rhonda_praise = ["i love rhonda",
+                 "rhonda i love you"]
 
 #List of possible trigger phrases for RhondaBot to go offline.
 rhonda_leave_triggers = ["rhonda go home",
