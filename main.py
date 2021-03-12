@@ -109,8 +109,8 @@ async def on_message(message):
     #Check for Rhonda abuse
     if msg.lower() in rhonda_abuse:
         abuse_count += 1
-        print(f"RHONDA ABUSE BY {message.author.display_name}: {msg}" + 
-              f" [{abuse_count}]\n")
+        print(f"RHONDA ABUSE BY {message.author.display_name} " +
+              f"({message.author}): {msg} [{abuse_count}]\n")
         
         await message.channel.send(f"Fuck you {message.author.mention}!")
         
