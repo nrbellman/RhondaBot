@@ -30,7 +30,8 @@ rhonda_praise = ["i love rhonda",
 rhonda_leave_triggers = ["rhonda go home",
                          "rhonda leave",
                          "you can go now rhonda",
-                         "rhonda you can leave"]
+                         "rhonda you can leave",
+                         "go home rhonda"]
 
 #A dict of commands and their descriptions.
 commands = {"help, h" : "Displays this message.",
