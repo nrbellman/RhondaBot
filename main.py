@@ -118,6 +118,10 @@ async def on_message(message):
     #Check for Rhonda praise
     if msg.lower() in rhonda_praise:
         await message.add_reaction(emoji['heart'])
+
+    # Have Rhonda respond to "knock knock"
+    if "knock knock" in msg.lower():
+        await message.channel.send(f"Fuck Off")
     
     #Check for specific commands.
     if msg.startswith('!rhonda'):
