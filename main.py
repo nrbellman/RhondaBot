@@ -118,10 +118,12 @@ async def on_message(message):
        
     #Check for Rhonda praise
     if msg.lower() in rhonda_praise:
+        print(f"{message.author}: {msg}")
         await message.add_reaction(emoji['heart'])
 
     # Have Rhonda respond to "knock knock"
     if "knock knock" in msg.lower():
+        print(f"{message.author}: {msg}")
         await message.channel.send(f"Fuck Off")
     
     #Check for specific commands.
@@ -158,7 +160,7 @@ async def on_message(message):
       
     #Check for telling RhondaBot to leaves
     if msg.lower() in rhonda_leave_triggers:
-        print(f"{message.author}: {message.content}")
+        print(f"{message.author}: {msg}")
         await message.channel.send("Okay, I'm heading out now.")
         await rhonda_leave()
         
