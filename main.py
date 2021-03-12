@@ -17,7 +17,8 @@ rhonda_abuse = ["rhonda you suck",
                 "rhonda is a bitch",
                 "eat shit rhonda",
                 "fuck you rhonda",
-                "all my homies hate rhonda"]
+                "all my homies hate rhonda",
+                "rhonda dont text", "rhonda, don't text"]
 #Counter for the number of consecutive abuses aimed at RhondaBot
 abuse_count = 0
 
