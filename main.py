@@ -139,7 +139,7 @@ async def on_message(message):
         
         #RhondaBot greeting
         if command[1] == None:
-            await message.channel.send("Hi, I'm RhondaBot, you're personal " +
+            await message.channel.send("Hi, I'm RhondaBot, your personal " +
                                        "secretary")
         
         #Check for the 'help' command    
