@@ -34,7 +34,8 @@ rhonda_leave_triggers = ["rhonda go home",
 commands = {"help, h" : "Displays this message.",
             "meetup, m" : "[-location -time] Sends a message to everyone in " +
                           "the channel letting them know where and when to " +
-                          "meet up."}
+                          "meet up.",
+            "rip" : "RIP Dr. Dre"}
 
 #---COMMAND FUNCTIONS---
 
@@ -69,6 +70,11 @@ def meetup(arg):
                     f"{location}at {time}")
         
     print(response + "\n")
+    return response
+
+def rip():
+    response = 'RIP Dr. Dre'
+    print(response)
     return response
 
     
@@ -140,6 +146,10 @@ async def on_message(message):
                 output = meetup(command[2])
                 
             await message.channel.send(output)
+            
+        #Check for the 'rip' command
+        if (command[1].lower() == 'rip'):
+            await message.channel.send(rip())
       
     #Check for telling RhondaBot to leaves
     if msg.lower() in rhonda_leave_triggers:
