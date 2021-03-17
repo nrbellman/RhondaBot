@@ -108,19 +108,23 @@ async def on_ready():
 @client.event
 async def on_message(message):    
     msg = message.content
+    rand = randint(1,5)
     global abuse_count
     
     #Makes sure RhondaBot doesn't respond to her own messages.
     if message.author == client.user:
+        print(f"{message.author}: {msg}")
         return
     
     #Check for messages by specific users.
     if message.author.name == 'J00pster':
-        print(f"{message.author}: {msg}")
-        await message.add_reaction(emoji['clown'])
+        if rand >= 3:
+            print(f"{message.author}: {msg}")
+            await message.add_reaction(emoji['clown'])
+        else:
+            return
         
     if message.author.name == 'Ming Ming Bitch':
-        rand = randint(1,5)
         if rand == 3:
             print(f"{message.author}: {msg}")
             await message.channel.send(f"{message.author.mention} Don't text.")
