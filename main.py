@@ -108,7 +108,8 @@ async def on_message(message):
         await message.add_reaction(emoji['clown'])
         
     if message.author.name == 'Ming Ming Bitch':
-        await message.channel.send(f"@{message.author} Don't text.")
+        
+        await message.channel.send(f"{message.author.mention} Don't text.")
     
     #Check for Rhonda abuse
     if msg.lower() in rhonda_abuse:
