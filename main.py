@@ -124,6 +124,8 @@ async def on_message(message):
         if rand == 3:
             print(f"{message.author}: {msg}")
             await message.channel.send(f"{message.author.mention} Don't text.")
+        else:
+            return
     #-------------------------------------
     
     #Check for Rhonda abuse
