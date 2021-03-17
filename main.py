@@ -1,3 +1,13 @@
+# WELCOME TO ~200 LINES OF PURE JANK
+#
+# Author: Nicholas Bellman
+# Other Contributors: Ryan Haas
+#
+# This is RhondaBot, a Discord bot made for the Garbage Lads server. The goal of
+# RhondaBot is to serve as the ultimate automated secretary that takes no shit. 
+# The bot is not meant to be an example of best practices or ideal code 
+# structure. It just needs to work.
+
 from dotenv import load_dotenv
 from random import randint
 import discord
