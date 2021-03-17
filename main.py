@@ -103,8 +103,12 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    if message.author.name == "J00pster":
+    #Check for messages by specific users.
+    if message.author.name == 'J00pster':
         await message.add_reaction(emoji['clown'])
+        
+    if message.author.name == 'Ming Ming Bitch':
+        await message.channel.send(f"@{message.author} Don't text.")
     
     #Check for Rhonda abuse
     if msg.lower() in rhonda_abuse:
