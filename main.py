@@ -105,10 +105,11 @@ async def on_message(message):
     
     #Check for messages by specific users.
     if message.author.name == 'J00pster':
+        print(f"{message.author}: {msg}")
         await message.add_reaction(emoji['clown'])
         
     if message.author.name == 'Ming Ming Bitch':
-        
+        print(f"{message.author}: {msg}")
         await message.channel.send(f"{message.author.mention} Don't text.")
     
     #Check for Rhonda abuse
@@ -132,6 +133,10 @@ async def on_message(message):
     if "knock knock" in msg.lower():
         print(f"{message.author}: {msg}")
         await message.channel.send(f"Fuck Off")
+        
+    if "deez" in msg.lower():
+        print(f"{message.author}: {msg}")
+        await message.channel.send(f"Deez Nutz!")
     
     #Check for specific commands.
     if msg.startswith('!rhonda'):
