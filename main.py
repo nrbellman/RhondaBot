@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from random import randint
 import discord
 import os
 
@@ -16,7 +17,7 @@ rhonda_abuse = ["rhonda you suck",
                 "i hate rhonda",
                 "rhonda is a bitch",
                 "eat shit rhonda",
-                "fuck you rhonda",
+                "fuck you rhonda", "fuck u rhonda",
                 "all my homies hate rhonda",
                 "rhonda dont text", "rhonda, don't text"]
 #Counter for the number of consecutive abuses aimed at RhondaBot
@@ -109,8 +110,11 @@ async def on_message(message):
         await message.add_reaction(emoji['clown'])
         
     if message.author.name == 'Ming Ming Bitch':
-        print(f"{message.author}: {msg}")
-        await message.channel.send(f"{message.author.mention} Don't text.")
+        rand = randint(1,5)
+        if rand == 3:
+            print(f"{message.author}: {msg}")
+            await message.channel.send(f"{message.author.mention} Don't text.")
+    #-------------------------------------
     
     #Check for Rhonda abuse
     if msg.lower() in rhonda_abuse:
@@ -132,11 +136,11 @@ async def on_message(message):
     # Have Rhonda respond to "knock knock"
     if "knock knock" in msg.lower():
         print(f"{message.author}: {msg}")
-        await message.channel.send(f"Fuck Off")
+        await message.channel.send(f"Fuck Off {message.author.mention}")
         
     if "deez" in msg.lower():
         print(f"{message.author}: {msg}")
-        await message.channel.send(f"Deez Nutz!")
+        await message.channel.send(f"deez nutz!")
     
     #Check for specific commands.
     if msg.startswith('!rhonda'):
