@@ -29,13 +29,16 @@ rhonda_abuse = ["rhonda you suck",
                 "eat shit rhonda",
                 "fuck you rhonda", "fuck u rhonda",
                 "all my homies hate rhonda",
-                "rhonda dont text", "rhonda, don't text"]
+                "rhonda dont text", "rhonda, don't text",
+                "rhonda you dumb bitch"]
 #Counter for the number of consecutive abuses aimed at RhondaBot
 abuse_count = 0
 
 #List of possible trigger phrases for RhondaBot praise.
 rhonda_praise = ["i love rhonda",
-                 "rhonda i love you"]
+                 "rhonda i love you",
+                 "kiss me rhonda",
+                 "rhonda kisses?"]
 
 #List of possible trigger phrases for RhondaBot to go offline.
 rhonda_leave_triggers = ["rhonda go home",
@@ -107,9 +110,10 @@ async def on_ready():
     
 @client.event
 async def on_message(message):    
-    msg = message.content
-    rand = randint(1,5)
     global abuse_count
+    
+    msg = message.content
+    rand = randint(1,100)
     
     #Makes sure RhondaBot doesn't respond to her own messages.
     if message.author == client.user:
@@ -118,14 +122,16 @@ async def on_message(message):
     
     #Check for messages by specific users.
     if message.author.name == 'J00pster':
-        if rand >= 3:
+        # 60% chance of triggering.
+        if rand <= 60:
             print(f"{message.author}: {msg}")
             await message.add_reaction(emoji['clown'])
         else:
             return
         
     if message.author.name == 'Ming Ming Bitch':
-        if rand == 3:
+        # 10% chance of triggering
+        if rand <= 10:
             print(f"{message.author}: {msg}")
             await message.channel.send(f"{message.author.mention} Don't text.")
         else:
@@ -140,9 +146,11 @@ async def on_message(message):
         
         await message.channel.send(f"Fuck you {message.author.mention}!")
         
-        if abuse_count > 5:
+        if abuse_count >= 5:
             await message.channel.send(f"You know what! I'm done! I quit!")
             await rhonda_leave()
+        else:
+            abuse_count = 0
        
     #Check for Rhonda praise
     if msg.lower() in rhonda_praise:
